@@ -1,7 +1,8 @@
-yum -y install  wget nano
+#!/bin/bash
+yum -y install  wget nano expect
 wget http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
 yum -y install mysql-community-release-el7-7.noarch.rpm
 yum -y install mysql-server
 systemctl start mysqld.service
 systemctl enable mysqld.service
-mysql_secure_installation
+./script.exp
