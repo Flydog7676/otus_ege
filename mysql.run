@@ -1,8 +1,8 @@
 #!/bin/bash
-yum -y install  wget nano expect
-wget http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
-yum -y install mysql-community-release-el7-7.noarch.rpm
+yum -y install  wget nano
+wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+yum -y install mysql80-community-release-el7-3.noarch.rpm
 yum -y install mysql-server
 systemctl start mysqld.service
 systemctl enable mysqld.service
-./script.exp
+
