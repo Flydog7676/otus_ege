@@ -49,7 +49,8 @@
     tar xvzf mediawiki-1.36.1.tar.gz
     # копируем в папки 
     cp -r mediawiki-1.36.1/* /var/www/html/81/
-    cp -r mediawiki-1.36.1/* /var/www/html/82/
+    # установку и настройку 10.30.0.75.81
+    cp -r /var/www/html/81/* /var/www/html/82/
     cp LocalSettings.php /var/www/html/81/
     cp LocalSettings1.php /var/www/html/82/LocalSettings.php
 # настраиваем на apache 2 виртуальных сервера на портах 8081 и 8082
@@ -61,7 +62,7 @@
     #
     systemctl restart httpd
 # устанавливаем nginx и делаем upstream
-    cp nginx.repo /etc/yum.repo.d/
+    cp nginx.repo /etc/yum.repos.d/
     yum -y install nginx
     cp upstream.conf /etc/nginx/conf.d/
     nano /etc/nginx/nginx.conf
@@ -82,7 +83,7 @@
     cp node_exporter /usr/local/bin/
     chown node_exporter: /usr/local/bin/node_exporter
  # создаем модуль для автозагрузки systemd
-    cp node_exporter.service /etc/systemd/system/
+    cp ~/nginx/node_exporter.service /etc/systemd/system/
     systemctl daemon-reload
     systemctl start node_exporter
     systemctl enable node_exporter

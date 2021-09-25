@@ -19,3 +19,10 @@
     -> START SLAVE;
 # на slave проверяем появление новой базы
     -> SHOW DATABASES;
+
+# backups базы данных и восстановление
+    mysqldump -u root -p -all-databases --no-create-info > dump-data.sql
+ #
+    mysqldump -u root -p -all-databases --no-create-info > dump-data.sql
+    mysqld  database_name < file.sql
+    mysql --one-database database_name < all_databases.sql
